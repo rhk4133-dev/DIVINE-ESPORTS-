@@ -1,33 +1,32 @@
-var publicSpreadsheetUrl = "https://docs.google.com/spreadsheets/d/1LAhLPELqlfM_I8Lz8ChMqywjWcLoS-jge4PO6eAeruc/edit?usp=sharing";
+// Your YouTube channel link
+const youtubeChannel = 'https://youtube.com/@divineesport-q9f?si=SdeeFXXjebKsIl-T';
 
-window.onload = function() {
-    Tabletop.init({
-        key: publicSpreadsheetUrl,
-        simpleSheet: true,
-        callback: showTeams
-    });
-};
+window.addEventListener('DOMContentLoaded', function() {
+    const registerCard = document.getElementById('registerCard');
+    const registerBtn = registerCard.querySelector('.registerBtn');
+    const subscribeCard = document.getElementById('subscribeCard');
+    const subscribeBtn = document.getElementById('subscribeBtn');
 
-function showTeams(data, tabletop) {
-    var container = document.getElementById("teamsList");
-    container.innerHTML = "";
+    // Initially hide register card until subscription
+    registerCard.style.display = 'block';
 
-    if(data.length === 0) {
-        container.innerHTML = "No teams registered yet.";
-        return;
+    // If user already subscribed, show register button
+    if (localStorage.getItem('subscribed') === 'true') {
+        subscribeCard.style.display = 'none';
+        registerBtn.classList.add('visible');
     }
 
-    data.forEach(team => {
-        var div = document.createElement("div");
-        div.className = "teamBox";
-        div.innerHTML = `
-            <strong>Team: ${team['Team Name']}</strong><br>
-            Player 1: ${team['Player 1 Name']}<br>
-            Player 2: ${team['Player 2 Name']}<br>
-            Player 3: ${team['Player 3 Name']}<br>
-            Player 4: ${team['Player 4 Name']}<br>
-            Leader Mobile: ${team['Squad Leader Mobile Number']}
-        `;
-        container.appendChild(div);
+    subscribeBtn.addEventListener('click', function() {
+        // Open YouTube channel in a new tab
+        window.open(youtubeChannel, '_blank');
+
+        // Mark as subscribed in localStorage
+        localStorage.setItem('subscribed', 'true');
+
+        // Hide subscribe card
+        subscribeCard.style.display = 'none';
+
+        // Fade in the register button
+        registerBtn.classList.add('visible');
     });
-}
+});
