@@ -4,54 +4,78 @@ body {
     background: url('img1.jpg') no-repeat center center/cover;
 }
 
+/* Dark Overlay */
 .overlay {
-    background: rgba(0,0,0,0.7);
+    background: rgba(0,0,0,0.8);
     min-height: 100vh;
     display: flex;
     flex-direction: column;
     align-items: center;
-    padding: 30px;
+    padding: 40px 20px;
 }
 
+/* Title */
 .title {
     color: gold;
-    font-size: 40px;
-    margin-bottom: 30px;
+    font-size: 42px;
+    margin-bottom: 40px;
     text-align: center;
+    text-shadow: 0 0 15px gold;
 }
 
+/* Card Box */
 .card {
-    background: rgba(0,0,0,0.5);
-    border: 1px solid gold;
-    border-radius: 10px;
-    padding: 25px;
-    width: 90%;
-    max-width: 500px;
+    background: rgba(0,0,0,0.6);
+    border: 2px solid gold;
+    border-radius: 12px;
+    padding: 30px;
+    width: 95%;
+    max-width: 520px;
     text-align: center;
+    box-shadow: 0 0 20px gold;
 }
 
+/* Attractive Instruction */
 .instruction {
-    color: white;
-    font-size: 20px;
-    font-weight: bold;
-    margin-bottom: 25px;
+    color: #ffffff;
+    font-size: 22px;
+    font-weight: 900;
+    margin-bottom: 30px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    text-shadow: 0 0 10px gold,
+                 0 0 20px orange,
+                 0 0 30px red;
+    animation: glowText 1.5s infinite alternate;
 }
 
-/* Subscribe Button (YouTube style) */
+@keyframes glowText {
+    from {
+        text-shadow: 0 0 10px gold,
+                     0 0 20px orange;
+    }
+    to {
+        text-shadow: 0 0 25px red,
+                     0 0 40px gold;
+    }
+}
+
+/* Subscribe Button */
 #subscribeBtn {
     display: inline-block;
     background: #FF0000;
     color: white;
-    padding: 15px 25px;
-    font-size: 18px;
-    border-radius: 5px;
+    padding: 15px 30px;
+    font-size: 20px;
+    font-weight: bold;
+    border-radius: 6px;
     text-decoration: none;
     animation: pulse 1.5s infinite;
 }
 
 @keyframes pulse {
     0% { transform: scale(1); }
-    50% { transform: scale(1.06); }
+    50% { transform: scale(1.08); }
     100% { transform: scale(1); }
 }
 
@@ -60,9 +84,10 @@ body {
     display: inline-block;
     background: #00ccff;
     color: black;
-    padding: 15px 25px;
-    font-size: 18px;
-    border-radius: 5px;
+    padding: 15px 30px;
+    font-size: 20px;
+    font-weight: bold;
+    border-radius: 6px;
     text-decoration: none;
     opacity: 0;
     transition: opacity 0.8s ease;
