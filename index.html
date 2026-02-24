@@ -3,55 +3,65 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Divine Esport Tournament</title>
+<title>DIVINE ESPORT | Free Fire Tournament</title>
+
 <link rel="stylesheet" href="style.css">
+
 <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
 <script src="script.js" defer></script>
 </head>
 <body>
 
-<div class="background-animation"></div>
+<div class="background"></div>
 
-<div class="overlay">
-    <h1 class="title">DIVINE ESPORT TOURNAMENT</h1>
+<div class="container">
 
-    <!-- Countdown Timer -->
-    <div class="timer">
-        Registration Ends In:
-        <span id="countdown">00:00:00</span>
+    <h1 class="brand">DIVINE ESPORT</h1>
+    <p class="tagline">Where Legends Rise 🔥</p>
+
+    <div class="countdown-box">
+        <span>Registration Ends In</span>
+        <div id="countdown">Loading...</div>
     </div>
 
-    <!-- Subscribe Section -->
     <div class="card" id="subscribeSection">
+        <h2>Unlock Tournament Registration</h2>
         <p class="instruction">
-            SUBSCRIBE TO THE DIVINE YOUTUBE CHANNEL <br>
-            TO UNLOCK REGISTRATION
+            Subscribe to our official YouTube channel  
+            and support the dream.
         </p>
 
-        <a href="https://youtube.com/@divineesport-q9f?si=SdeeFXXjebKsIl-T"
+        <a href="https://youtube.com/@divineesport-q9f"
            target="_blank"
-           rel="noopener"
+           class="btn red"
            id="subscribeBtn">
-           SUBSCRIBE
+           Subscribe Now
         </a>
 
-        <div id="verification" class="verification">
-            Verifying Subscription...
-        </div>
+        <div id="verification" class="verification"></div>
     </div>
 
-    <!-- Register Section -->
-    <div class="card" id="registerSection" style="display:none;">
+    <div class="card hidden" id="registerSection">
+        <h2>Subscription Confirmed</h2>
         <p class="instruction">
-            ✅ SUBSCRIPTION VERIFIED <br>
-            NOW REGISTER YOUR TEAM
+            You are now part of the Divine family.  
+            Register your team and make history.
         </p>
 
         <a href="https://forms.gle/1HebsCJwGdaJzVnRA"
            target="_blank"
-           class="registerBtn">
-           REGISTER NOW
+           class="btn gold">
+           Register Your Team
         </a>
+    </div>
+
+    <div class="dream-section">
+        <p>
+            "This is not just a tournament.  
+            This is the beginning of a dream."
+        </p>
+
+        <span>— Founder, Divine Esport</span>
     </div>
 
 </div>
