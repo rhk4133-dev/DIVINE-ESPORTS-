@@ -5,29 +5,30 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Divine Esport Tournament</title>
 <link rel="stylesheet" href="style.css">
+<script src="script.js" defer></script>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" rel="stylesheet">
 </head>
 <body>
 
 <div class="overlay">
     <h1 class="title">DIVINE ESPORT TOURNAMENT</h1>
 
-    <div class="card">
-        <h2>How to Register</h2>
-        <p>Click the button below to register your team via Google Form.</p>
-        <a href="https://forms.gle/1HebsCJwGdaJzVnRA" target="_blank">
-            <button>Register Now</button>
-        </a>
+    <div class="card" id="subscribeCard">
+        <p class="instruction">
+            SUBSCRIBE TO THE DIVINE YOUTUBE CHANNEL AND RETURN TO THIS PAGE TO REGISTER
+        </p>
+        <button id="subscribeBtn">
+            <i class="fa fa-bell"></i> SUBSCRIBE
+        </button>
     </div>
 
-    <div class="card">
-        <h2>Tournament Instructions</h2>
-        <ul>
-            <li>Each team must have exactly 4 players.</li>
-            <li>Provide Player names and Squad Leader mobile number correctly.</li>
-            <li>Use your real Free Fire IDs.</li>
-            <li>Registration is open until the given deadline.</li>
-            <li>Follow the tournament rules strictly.</li>
-        </ul>
+    <div class="card" id="registerCard">
+        <p class="instruction">
+            Thank you for subscribing! Now register your team.
+        </p>
+        <a href="https://forms.gle/1HebsCJwGdaJzVnRA" target="_blank">
+            <button class="registerBtn">Register Now</button>
+        </a>
     </div>
 </div>
 
