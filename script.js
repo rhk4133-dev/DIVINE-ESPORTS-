@@ -1,58 +1,54 @@
-document.addEventListener("DOMContentLoaded", function () {
+document.addEventListener("DOMContentLoaded", function(){
 
     const subscribeBtn = document.getElementById("subscribeBtn");
     const subscribeSection = document.getElementById("subscribeSection");
     const registerSection = document.getElementById("registerSection");
-    const registerBtn = document.querySelector(".registerBtn");
     const verification = document.getElementById("verification");
 
-    // 🔊 Button Sound
-    const clickSound = new Audio("https://www.soundjay.com/buttons/sounds/button-3.mp3");
+    subscribeBtn.addEventListener("click", function(){
 
-    subscribeBtn.addEventListener("click", function () {
+        verification.innerHTML = "Verifying subscription...";
 
-        clickSound.play();
-
-        verification.style.display = "block";
-
-        // Fake verification animation
         setTimeout(() => {
+
             verification.innerHTML = "Subscription Verified ✅";
 
-            // Confetti 🎉
             confetti({
-                particleCount: 150,
-                spread: 100,
+                particleCount: 120,
+                spread: 90,
                 origin: { y: 0.6 }
             });
 
-            setTimeout(() => {
-                subscribeSection.style.display = "none";
-                registerSection.style.display = "block";
-                registerBtn.classList.add("show");
-            }, 1500);
+            setTimeout(()=>{
+                subscribeSection.style.display="none";
+                registerSection.classList.remove("hidden");
+            },1500);
 
-        }, 2000);
+        },2000);
     });
 
-    // ⏳ Countdown Timer (2 Hours Example)
-    const endTime = new Date().getTime() + (2 * 60 * 60 * 1000);
+    // 🔥 Countdown (Editable Date)
 
-    const timer = setInterval(function () {
+    const endTime = new Date("February 28, 2026 23:59:59").getTime();
+
+    setInterval(function(){
+
         const now = new Date().getTime();
         const distance = endTime - now;
 
-        const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-        const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-        const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+        if(distance < 0){
+            document.getElementById("countdown").innerHTML="REGISTRATION CLOSED";
+            return;
+        }
+
+        const days = Math.floor(distance / (1000*60*60*24));
+        const hours = Math.floor((distance % (1000*60*60*24))/(1000*60*60));
+        const minutes = Math.floor((distance % (1000*60*60))/(1000*60));
+        const seconds = Math.floor((distance % (1000*60))/1000);
 
         document.getElementById("countdown").innerHTML =
-            hours + "h " + minutes + "m " + seconds + "s ";
+        days+"d "+hours+"h "+minutes+"m "+seconds+"s";
 
-        if (distance < 0) {
-            clearInterval(timer);
-            document.getElementById("countdown").innerHTML = "REGISTRATION CLOSED";
-        }
-    }, 1000);
+    },1000);
 
 });
