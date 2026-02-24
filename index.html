@@ -5,19 +5,27 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Divine Esport Tournament</title>
 <link rel="stylesheet" href="style.css">
+<script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
 <script src="script.js" defer></script>
 </head>
 <body>
 
+<div class="background-animation"></div>
+
 <div class="overlay">
     <h1 class="title">DIVINE ESPORT TOURNAMENT</h1>
+
+    <!-- Countdown Timer -->
+    <div class="timer">
+        Registration Ends In:
+        <span id="countdown">00:00:00</span>
+    </div>
 
     <!-- Subscribe Section -->
     <div class="card" id="subscribeSection">
         <p class="instruction">
             SUBSCRIBE TO THE DIVINE YOUTUBE CHANNEL <br>
-            AND RETURN TO THIS PAGE <br>
-            THE REGISTRATION BUTTON WILL APPEAR
+            TO UNLOCK REGISTRATION
         </p>
 
         <a href="https://youtube.com/@divineesport-q9f?si=SdeeFXXjebKsIl-T"
@@ -26,12 +34,17 @@
            id="subscribeBtn">
            SUBSCRIBE
         </a>
+
+        <div id="verification" class="verification">
+            Verifying Subscription...
+        </div>
     </div>
 
     <!-- Register Section -->
     <div class="card" id="registerSection" style="display:none;">
         <p class="instruction">
-            THANK YOU! NOW REGISTER YOUR TEAM
+            ✅ SUBSCRIPTION VERIFIED <br>
+            NOW REGISTER YOUR TEAM
         </p>
 
         <a href="https://forms.gle/1HebsCJwGdaJzVnRA"
