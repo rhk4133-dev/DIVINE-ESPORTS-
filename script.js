@@ -5,19 +5,21 @@ document.addEventListener("DOMContentLoaded", function () {
     const registerSection = document.getElementById("registerSection");
     const registerBtn = document.querySelector(".registerBtn");
 
-    // If already clicked before
-    if (localStorage.getItem("clickedSubscribe") === "true") {
+    // When Subscribe is clicked
+    subscribeBtn.addEventListener("click", function () {
+
+        // Save click
+        localStorage.setItem("clickedSubscribe", "true");
+
+        // Hide Subscribe Section
         subscribeSection.style.display = "none";
+
+        // Show Register Section instantly
         registerSection.style.display = "block";
 
         setTimeout(() => {
             registerBtn.classList.add("show");
         }, 200);
-    }
-
-    // When Subscribe is clicked
-    subscribeBtn.addEventListener("click", function () {
-        localStorage.setItem("clickedSubscribe", "true");
     });
 
 });
