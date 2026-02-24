@@ -1,12 +1,28 @@
 body {
     margin: 0;
     font-family: Arial, sans-serif;
-    background: url('img1.jpg') no-repeat center center/cover;
+    overflow: hidden;
+    background: black;
 }
 
-/* Dark Overlay */
+/* Animated Moving Background */
+.background-animation {
+    position: fixed;
+    width: 200%;
+    height: 200%;
+    background: linear-gradient(45deg, #000000, #111111, #1a1a1a, #000000);
+    animation: moveBg 10s linear infinite;
+    z-index: -1;
+}
+
+@keyframes moveBg {
+    0% { transform: translate(0,0); }
+    50% { transform: translate(-25%,-25%); }
+    100% { transform: translate(0,0); }
+}
+
 .overlay {
-    background: rgba(0,0,0,0.8);
+    background: rgba(0,0,0,0.85);
     min-height: 100vh;
     display: flex;
     flex-direction: column;
@@ -14,16 +30,19 @@ body {
     padding: 40px 20px;
 }
 
-/* Title */
 .title {
     color: gold;
     font-size: 42px;
-    margin-bottom: 40px;
-    text-align: center;
-    text-shadow: 0 0 15px gold;
+    text-shadow: 0 0 20px gold;
+    margin-bottom: 20px;
 }
 
-/* Card Box */
+.timer {
+    color: cyan;
+    font-size: 20px;
+    margin-bottom: 30px;
+}
+
 .card {
     background: rgba(0,0,0,0.6);
     border: 2px solid gold;
@@ -35,32 +54,21 @@ body {
     box-shadow: 0 0 20px gold;
 }
 
-/* Attractive Instruction */
 .instruction {
-    color: #ffffff;
+    color: white;
     font-size: 22px;
     font-weight: 900;
-    margin-bottom: 30px;
+    margin-bottom: 25px;
     text-transform: uppercase;
-    letter-spacing: 1px;
-    text-shadow: 0 0 10px gold,
-                 0 0 20px orange,
-                 0 0 30px red;
-    animation: glowText 1.5s infinite alternate;
+    text-shadow: 0 0 10px gold, 0 0 20px red;
+    animation: glow 1.5s infinite alternate;
 }
 
-@keyframes glowText {
-    from {
-        text-shadow: 0 0 10px gold,
-                     0 0 20px orange;
-    }
-    to {
-        text-shadow: 0 0 25px red,
-                     0 0 40px gold;
-    }
+@keyframes glow {
+    from { text-shadow: 0 0 10px gold; }
+    to { text-shadow: 0 0 25px red; }
 }
 
-/* Subscribe Button */
 #subscribeBtn {
     display: inline-block;
     background: #FF0000;
@@ -79,10 +87,15 @@ body {
     100% { transform: scale(1); }
 }
 
-/* Register Button */
+.verification {
+    margin-top: 20px;
+    color: yellow;
+    display: none;
+}
+
 .registerBtn {
     display: inline-block;
-    background: #00ccff;
+    background: #00ffcc;
     color: black;
     padding: 15px 30px;
     font-size: 20px;
@@ -90,7 +103,7 @@ body {
     border-radius: 6px;
     text-decoration: none;
     opacity: 0;
-    transition: opacity 0.8s ease;
+    transition: opacity 1s ease;
 }
 
 .registerBtn.show {
