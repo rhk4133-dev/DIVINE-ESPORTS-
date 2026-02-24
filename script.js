@@ -5,29 +5,17 @@ document.addEventListener("DOMContentLoaded", function(){
     const registerSection = document.getElementById("registerSection");
     const verification = document.getElementById("verification");
 
-    let waitingForReturn = false;
-
-    // When Subscribe button is clicked
     subscribeBtn.addEventListener("click", function(){
 
-        verification.innerHTML = "Redirecting to YouTube...";
+        verification.innerHTML = "Verifying subscription...";
 
-        waitingForReturn = true;
+        setTimeout(() => {
 
-        // Open YouTube in new tab
-        window.open("https://www.youtube.com/@divineesport?sub_confirmation=1", "_blank");
-    });
-
-    // Detect when user returns to this tab
-    window.addEventListener("focus", function(){
-
-        if(waitingForReturn){
-
-            verification.innerHTML = "Subscription Verified ✅";
+            verification.innerHTML = "Subscription Verified ✔";
 
             confetti({
-                particleCount: 120,
-                spread: 90,
+                particleCount: 100,
+                spread: 80,
                 origin: { y: 0.6 }
             });
 
@@ -36,9 +24,7 @@ document.addEventListener("DOMContentLoaded", function(){
                 registerSection.classList.remove("hidden");
             },1500);
 
-            waitingForReturn = false;
-        }
-
+        },2000);
     });
 
 });
