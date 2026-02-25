@@ -5,26 +5,31 @@ document.addEventListener("DOMContentLoaded", function(){
     const registerSection = document.getElementById("registerSection");
     const verification = document.getElementById("verification");
 
+    // If already subscribed before
+    if(localStorage.getItem("subscribed") === "true"){
+        subscribeSection.style.display="none";
+        registerSection.classList.remove("hidden");
+    }
+
     subscribeBtn.addEventListener("click", function(){
 
-        verification.innerHTML = "Verifying subscription...";
+        verification.innerHTML = "Opening YouTube...";
 
+        // Save subscription status
+        localStorage.setItem("subscribed", "true");
+
+        // Small delay to allow YouTube open
         setTimeout(() => {
-
-            verification.innerHTML = "Subscription Verified ✔";
+            subscribeSection.style.display="none";
+            registerSection.classList.remove("hidden");
 
             confetti({
-                particleCount: 100,
-                spread: 80,
+                particleCount: 120,
+                spread: 90,
                 origin: { y: 0.6 }
             });
 
-            setTimeout(()=>{
-                subscribeSection.style.display="none";
-                registerSection.classList.remove("hidden");
-            },1500);
-
-        },2000);
+        },1500);
     });
 
 });
