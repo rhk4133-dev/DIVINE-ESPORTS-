@@ -4,8 +4,12 @@ document.addEventListener("DOMContentLoaded", function () {
     const subscribeSection = document.getElementById("subscribeSection");
     const registerSection = document.getElementById("registerSection");
     const verification = document.getElementById("verification");
+    const bgMusic = document.getElementById("bgMusic");
 
     subscribeBtn.addEventListener("click", function () {
+
+        // 🎵 Play music
+        bgMusic.play().catch(() => {});
 
         verification.innerHTML = "Verifying subscription...";
 
